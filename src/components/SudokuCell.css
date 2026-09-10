@@ -1,0 +1,137 @@
+
+.sudoku-cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--md-outline-variant);
+  background: var(--md-surface-container-low);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background-color var(--transition-standard),
+    border-color var(--transition-standard),
+    transform 0.15s ease;
+  padding: 0;
+  font-family: var(--md-font);
+  border-radius: 0;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.sudoku-cell:hover:not(.cell-given):not(.cell-paused) {
+  background: var(--md-surface-container);
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+.sudoku-cell:active {
+  transform: scale(0.97);
+}
+
+/* States */
+.cell-selected {
+  background: var(--md-primary-container) !important;
+  border-color: var(--md-primary) !important;
+  z-index: 3;
+  box-shadow: 0 0 0 2px var(--md-primary);
+}
+
+.cell-highlight-area {
+  background: color-mix(in srgb, var(--md-primary-container) 30%, var(--md-surface-container-low)) !important;
+}
+
+.cell-highlight-number {
+  background: color-mix(in srgb, var(--md-primary-container) 60%, var(--md-surface-container-low)) !important;
+}
+
+.cell-conflict {
+  background: var(--md-error-container) !important;
+  border-color: var(--md-error) !important;
+  color: var(--md-error) !important;
+}
+
+.cell-given .cell-value {
+  color: var(--md-on-surface);
+  font-weight: 700;
+}
+
+.cell-correct .cell-value {
+  color: var(--md-primary);
+  font-weight: 600;
+}
+
+.cell-paused {
+  cursor: default;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Shaking animation for wrong input */
+.cell-shaking {
+  animation: shake 500ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  background: var(--md-error-container) !important;
+}
+
+/* Cell value text */
+.cell-value {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  color: var(--md-on-surface);
+  line-height: 1;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.cell-value-entered {
+  animation: numberPop 250ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  color: var(--md-primary);
+}
+
+/* Notes grid */
+.cell-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  gap: 0;
+}
+
+.note-num {
+  font-size: clamp(0.45rem, 1vw, 0.62rem);
+  color: var(--md-on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-weight: 500;
+  user-select: none;
+}
+
+.note-active {
+  color: var(--md-primary);
+  animation: numberPop 200ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Responsive cell sizes */
+@media (max-width: 600px) {
+  :root {
+    --cell-size: 38px;
+  }
+  .cell-notes { padding: 1px; }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  :root {
+    --cell-size: 48px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --cell-size: 58px;
+  }
+}

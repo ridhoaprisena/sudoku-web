@@ -1,0 +1,133 @@
+/* ---- GameControls Styles ---- */
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.control-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 14px;
+  min-width: 64px;
+  flex: 1;
+  border-radius: var(--md-shape-medium);
+  border: 1.5px solid var(--md-outline-variant);
+  background: var(--md-surface-container);
+  color: var(--md-on-surface-variant);
+  cursor: pointer;
+  transition:
+    background var(--transition-standard),
+    color var(--transition-standard),
+    border-color var(--transition-standard),
+    transform 0.15s ease,
+    box-shadow var(--transition-standard);
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--md-font);
+}
+
+.control-btn:hover:not(.control-disabled) {
+  background: var(--md-surface-container-high);
+  color: var(--md-on-surface);
+  border-color: var(--md-outline);
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-2);
+}
+
+.control-btn:active:not(.control-disabled) {
+  transform: translateY(0) scale(0.95);
+  box-shadow: none;
+}
+
+.control-active {
+  background: var(--md-secondary-container) !important;
+  color: var(--md-on-secondary-container) !important;
+  border-color: var(--md-secondary) !important;
+}
+
+.control-disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.control-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-icon-wrap .material-icons-round {
+  font-size: 22px;
+}
+
+.active-indicator {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--md-primary);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.control-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+/* ---- Mobile kecil ---- */
+@media (max-width: 480px) {
+  .game-controls {
+    gap: 5px;
+    padding: 4px 6px;
+  }
+  .control-btn {
+    padding: 8px 8px;
+    min-width: 52px;
+  }
+  .control-icon-wrap .material-icons-round {
+    font-size: 20px;
+  }
+  .control-label {
+    font-size: 0.62rem;
+  }
+}
+
+/* ---- Desktop: grid 2×2 di sidebar ---- */
+@media (min-width: 900px) {
+  .game-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0;
+    flex-wrap: unset;
+  }
+
+  .control-btn {
+    flex: unset;
+    min-width: unset;
+    padding: 14px 12px;
+    gap: 6px;
+    border-radius: var(--md-shape-large);
+  }
+
+  .control-icon-wrap .material-icons-round {
+    font-size: 24px;
+  }
+
+  .control-label {
+    font-size: 0.75rem;
+  }
+}

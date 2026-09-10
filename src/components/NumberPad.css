@@ -1,0 +1,136 @@
+/* ---- NumberPad Styles ---- */
+.number-pad {
+  display: grid;
+  /* Mobile/tablet: 9 tombol sebaris (horizontal strip mudah dijangkau jempol) */
+  grid-template-columns: repeat(9, 1fr);
+  gap: 5px;
+  padding: 6px 10px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.num-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: var(--md-shape-small);
+  border: 1.5px solid var(--md-outline-variant);
+  background: var(--md-surface-container-low);
+  color: var(--md-on-surface);
+  cursor: pointer;
+  transition:
+    background var(--transition-standard),
+    transform 0.12s ease,
+    box-shadow var(--transition-standard),
+    border-color var(--transition-standard);
+  position: relative;
+  overflow: hidden;
+  padding: 4px 2px;
+  -webkit-tap-highlight-color: transparent;
+  gap: 1px;
+}
+
+.num-btn:hover:not(.num-disabled):not(.num-complete) {
+  background: var(--md-primary-container);
+  border-color: var(--md-primary);
+  color: var(--md-on-primary-container);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--md-elevation-3);
+  z-index: 2;
+}
+
+.num-btn:active:not(.num-disabled):not(.num-complete) {
+  transform: scale(0.94);
+  box-shadow: none;
+}
+
+.num-complete {
+  background: color-mix(in srgb, var(--md-primary-container) 40%, var(--md-surface-container-low));
+  border-color: var(--md-primary);
+  opacity: 0.65;
+  cursor: default;
+}
+
+.num-disabled {
+  cursor: default;
+}
+
+.num-digit {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.num-remaining {
+  font-size: clamp(0.55rem, 1vw, 0.68rem);
+  font-weight: 500;
+  color: var(--md-on-surface-variant);
+  line-height: 1;
+}
+
+.num-check {
+  font-size: 0.85rem !important;
+  color: var(--md-primary);
+  display: flex;
+  align-items: center;
+}
+
+/* Ripple effect */
+.num-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--md-primary) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+.num-btn:active::after {
+  transform: scale(2.5);
+  opacity: 0.12;
+  transition: 0s;
+}
+
+/* ---- Mobile kecil ---- */
+@media (max-width: 480px) {
+  .number-pad {
+    gap: 4px;
+    padding: 4px 6px;
+  }
+  .num-digit {
+    font-size: 1rem;
+  }
+}
+
+/* ---- Desktop: 3×3 grid yang lebih lebar dan rapi ---- */
+@media (min-width: 900px) {
+  .number-pad {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 4px 0;
+    max-width: 100%;
+  }
+
+  .num-btn {
+    aspect-ratio: 1.2 / 1;  /* sedikit lebih lebar dari tinggi */
+    border-radius: var(--md-shape-medium);
+    padding: 8px 4px;
+    gap: 4px;
+  }
+
+  .num-btn:hover:not(.num-disabled):not(.num-complete) {
+    transform: translateY(-4px) scale(1.04);
+  }
+
+  .num-digit {
+    font-size: 1.5rem;
+  }
+
+  .num-remaining {
+    font-size: 0.72rem;
+  }
+}

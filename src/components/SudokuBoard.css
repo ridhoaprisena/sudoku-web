@@ -1,0 +1,45 @@
+
+.sudoku-board-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.sudoku-board {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid var(--md-on-surface);
+  border-radius: var(--md-shape-small);
+  overflow: hidden;
+  box-shadow: var(--md-elevation-3);
+  background: var(--md-outline);
+  gap: 1px;
+}
+
+.board-row {
+  display: flex;
+  gap: 1px;
+}
+
+.cell-wrapper {
+  position: relative;
+  line-height: 0;
+}
+
+.border-top-thick {
+  border-top: 2px solid var(--md-on-surface);
+  margin-top: 2px;
+}
+
+.border-left-thick {
+  border-left: 2px solid var(--md-on-surface);
+  margin-left: 2px;
+}
+
+
+.sudoku-board-wrapper.paused .sudoku-board {
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+}

@@ -1,0 +1,198 @@
+/* ---- GameScreen Styles ---- */
+.game-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--md-background);
+  animation: fadeIn 300ms ease both;
+  overflow: hidden;
+}
+
+.game-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ---- Pause Overlay ---- */
+.pause-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--md-scrim);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pause-card {
+  background: var(--md-surface-container-high);
+  border-radius: var(--md-shape-extra-large);
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--md-elevation-4);
+}
+
+.pause-icon {
+  font-size: 64px !important;
+  color: var(--md-primary);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.pause-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--md-on-surface);
+  margin: 0;
+}
+
+.pause-hint {
+  font-size: 0.9rem;
+  color: var(--md-on-surface-variant);
+  margin: 0;
+  text-align: center;
+}
+
+/* ============================
+   MOBILE / DEFAULT (< 900px)
+   Papan di atas, kontrol di bawah
+   ============================ */
+.game-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.board-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.controls-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+  gap: 2px;
+  flex: 0 0 auto;
+}
+
+/* Keyboard hint — desktop only */
+.keyboard-hint {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--md-on-surface-variant);
+  opacity: 0.5;
+  padding: 2px 0;
+}
+.hint-icon { font-size: 14px !important; }
+
+/* Sidebar section labels & divider — hidden on mobile, shown on desktop */
+.sidebar-label {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--md-on-surface-variant);
+  padding: 0 2px;
+}
+
+.sidebar-label .material-icons-round {
+  font-size: 15px !important;
+  color: var(--md-primary);
+}
+
+.sidebar-divider {
+  display: none;
+  height: 1px;
+  background: var(--md-outline-variant);
+  width: 100%;
+  border-radius: var(--md-shape-full);
+}
+
+/* ---- Tablet (600–899px) ---- */
+@media (min-width: 600px) and (max-width: 899px) {
+  .game-layout {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+}
+
+/* ============================
+   DESKTOP (≥ 900px)
+   Papan di kiri, sidebar kanan
+   ============================ */
+@media (min-width: 900px) {
+  .game-layout {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    gap: 32px;
+    overflow: hidden;
+  }
+
+  /* Papan: ukurannya sudah cukup, tidak perlu flex tumbuh */
+  .board-area {
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  /* Sidebar: lebar tetap, tinggi mengikuti board, scroll jika perlu */
+  .controls-area {
+    flex: 0 0 260px;
+    width: 260px;
+    max-width: 260px;
+    align-self: center;
+    gap: 12px;
+    /* Jika konten terlalu panjang, scroll tanpa scrollbar terlihat */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* Batasi tinggi sidebar agar tidak overflow viewport */
+    max-height: calc(100vh - 80px);
+    padding: 4px 2px;
+  }
+  .controls-area::-webkit-scrollbar {
+    display: none;
+  }
+
+  .keyboard-hint {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .sidebar-label {
+    display: flex;
+  }
+
+  .sidebar-divider {
+    display: block;
+    margin: 2px 0;
+  }
+}

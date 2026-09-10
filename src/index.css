@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
+
+:root {
+  --md-primary: #6750A4;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #EADDFF;
+  --md-on-primary-container: #21005D;
+  --md-secondary: #625B71;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #E8DEF8;
+  --md-on-secondary-container: #1D192B;
+  --md-tertiary: #7D5260;
+  --md-on-tertiary: #FFFFFF;
+  --md-tertiary-container: #FFD8E4;
+  --md-on-tertiary-container: #31111D;
+  --md-error: #B3261E;
+  --md-on-error: #FFFFFF;
+  --md-error-container: #F9DEDC;
+  --md-on-error-container: #410E0B;
+  --md-surface: #FFFBFE;
+  --md-on-surface: #1C1B1F;
+  --md-surface-variant: #E7E0EC;
+  --md-on-surface-variant: #49454F;
+  --md-outline: #79747E;
+  --md-outline-variant: #CAC4D0;
+  --md-background: #FFFBFE;
+  --md-on-background: #1C1B1F;
+  --md-surface-container-lowest: #FFFFFF;
+  --md-surface-container-low: #F7F2FA;
+  --md-surface-container: #F3EDF7;
+  --md-surface-container-high: #ECE6F0;
+  --md-surface-container-highest: #E6E0E9;
+  --md-inverse-surface: #313033;
+  --md-inverse-on-surface: #F4EFF4;
+  --md-inverse-primary: #D0BCFF;
+  --md-scrim: rgba(0,0,0,0.32);
+  --md-elevation-1: 0 1px 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.14);
+  --md-elevation-2: 0 1px 2px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.14);
+  --md-elevation-3: 0 4px 8px rgba(0,0,0,.12), 0 0 12px rgba(0,0,0,.10);
+  --md-elevation-4: 0 6px 10px rgba(0,0,0,.12), 0 0 18px rgba(0,0,0,.10);
+  --md-shape-none: 0px;
+  --md-shape-extra-small: 4px;
+  --md-shape-small: 8px;
+  --md-shape-medium: 12px;
+  --md-shape-large: 16px;
+  --md-shape-extra-large: 28px;
+  --md-shape-full: 9999px;
+  --md-font: 'Roboto', sans-serif;
+  --md-font-mono: 'Roboto Mono', monospace;
+  --cell-size: 54px;
+  --transition-standard: 200ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-decelerate: 300ms cubic-bezier(0, 0, 0, 1);
+  --transition-accelerate: 200ms cubic-bezier(0.3, 0, 1, 1);
+}
+
+[data-theme="ocean"] {
+  --md-primary: #006781;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #B8EAFF;
+  --md-on-primary-container: #001F29;
+  --md-secondary: #4D616C;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #D0E6F2;
+  --md-on-secondary-container: #081E27;
+  --md-tertiary: #5B5B7E;
+  --md-on-tertiary: #FFFFFF;
+  --md-tertiary-container: #E1DFFF;
+  --md-on-tertiary-container: #170E47;
+  --md-surface: #FBFCFE;
+  --md-on-surface: #191C1E;
+  --md-surface-variant: #DBE4E9;
+  --md-on-surface-variant: #3F484D;
+  --md-outline: #6F787D;
+  --md-outline-variant: #BFC8CD;
+  --md-background: #FBFCFE;
+  --md-on-background: #191C1E;
+  --md-surface-container-lowest: #FFFFFF;
+  --md-surface-container-low: #F1F4F6;
+  --md-surface-container: #EBF0F2;
+  --md-surface-container-high: #E5EBF0;
+  --md-surface-container-highest: #DFE5EB;
+  --md-inverse-primary: #5DD5FB;
+}
+
+[data-theme="forest"] {
+  --md-primary: #306A2E;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #B1F0A7;
+  --md-on-primary-container: #002204;
+  --md-secondary: #52634F;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #D5E8CE;
+  --md-on-secondary-container: #101F10;
+  --md-tertiary: #38656A;
+  --md-on-tertiary: #FFFFFF;
+  --md-tertiary-container: #BCEBF0;
+  --md-on-tertiary-container: #002022;
+  --md-surface: #FAFDF6;
+  --md-on-surface: #1A1C19;
+  --md-surface-variant: #DDE5D9;
+  --md-on-surface-variant: #414941;
+  --md-outline: #717970;
+  --md-outline-variant: #C1C9BD;
+  --md-background: #FAFDF6;
+  --md-on-background: #1A1C19;
+  --md-surface-container-lowest: #FFFFFF;
+  --md-surface-container-low: #F1F4ED;
+  --md-surface-container: #EBF0EA;
+  --md-surface-container-high: #E5EAE4;
+  --md-surface-container-highest: #DFE5DE;
+  --md-inverse-primary: #96D48E;
+}
+
+[data-theme="sunset"] {
+  --md-primary: #9B4521;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #FFDBD0;
+  --md-on-primary-container: #370E00;
+  --md-secondary: #77574E;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #FFDBD0;
+  --md-on-secondary-container: #2C1510;
+  --md-tertiary: #6A5E2F;
+  --md-on-tertiary: #FFFFFF;
+  --md-tertiary-container: #F3E3A8;
+  --md-on-tertiary-container: #211A00;
+  --md-surface: #FFFBFF;
+  --md-on-surface: #201A18;
+  --md-surface-variant: #F5DED8;
+  --md-on-surface-variant: #534743;
+  --md-outline: #857370;
+  --md-outline-variant: #D8C2BD;
+  --md-background: #FFFBFF;
+  --md-on-background: #201A18;
+  --md-surface-container-lowest: #FFFFFF;
+  --md-surface-container-low: #FFF0ED;
+  --md-surface-container: #FCEAE7;
+  --md-surface-container-high: #F6E4E1;
+  --md-surface-container-highest: #F1DFDB;
+  --md-inverse-primary: #FFB59C;
+}
+
+[data-theme="rose"] {
+  --md-primary: #904A53;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #FFD9DC;
+  --md-on-primary-container: #3B0812;
+  --md-secondary: #755659;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #FFD9DC;
+  --md-on-secondary-container: #2C1517;
+  --md-tertiary: #795830;
+  --md-on-tertiary: #FFFFFF;
+  --md-tertiary-container: #FFDDB9;
+  --md-on-tertiary-container: #2C1600;
+  --md-surface: #FFFBFF;
+  --md-on-surface: #201A1A;
+  --md-surface-variant: #F4DDDE;
+  --md-on-surface-variant: #524344;
+  --md-outline: #846D6E;
+  --md-outline-variant: #D7C1C2;
+  --md-background: #FFFBFF;
+  --md-on-background: #201A1A;
+  --md-surface-container-lowest: #FFFFFF;
+  --md-surface-container-low: #FFF0F0;
+  --md-surface-container: #FCEAEA;
+  --md-surface-container-high: #F6E4E4;
+  --md-surface-container-highest: #F1DFDF;
+  --md-inverse-primary: #FFB2BA;
+}
+
+[data-theme="dark"] {
+  --md-primary: #D0BCFF;
+  --md-on-primary: #381E72;
+  --md-primary-container: #4F378B;
+  --md-on-primary-container: #EADDFF;
+  --md-secondary: #CCC2DC;
+  --md-on-secondary: #332D41;
+  --md-secondary-container: #4A4458;
+  --md-on-secondary-container: #E8DEF8;
+  --md-tertiary: #EFB8C8;
+  --md-on-tertiary: #492532;
+  --md-tertiary-container: #633B48;
+  --md-on-tertiary-container: #FFD8E4;
+  --md-error: #F2B8B5;
+  --md-on-error: #601410;
+  --md-error-container: #8C1D18;
+  --md-on-error-container: #F9DEDC;
+  --md-surface: #141218;
+  --md-on-surface: #E6E0E9;
+  --md-surface-variant: #49454F;
+  --md-on-surface-variant: #CAC4D0;
+  --md-outline: #938F99;
+  --md-outline-variant: #49454F;
+  --md-background: #141218;
+  --md-on-background: #E6E0E9;
+  --md-surface-container-lowest: #0F0D13;
+  --md-surface-container-low: #1D1B20;
+  --md-surface-container: #211F26;
+  --md-surface-container-high: #2B2930;
+  --md-surface-container-highest: #36343B;
+  --md-inverse-surface: #E6E0E9;
+  --md-inverse-on-surface: #313033;
+  --md-inverse-primary: #6750A4;
+  --md-scrim: rgba(0,0,0,0.6);
+  --md-elevation-1: 0 1px 2px rgba(0,0,0,.4), 0 1px 3px rgba(0,0,0,.6);
+  --md-elevation-2: 0 1px 2px rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.6);
+  --md-elevation-3: 0 4px 8px rgba(0,0,0,.4), 0 0 12px rgba(0,0,0,.3);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--md-font);
+  background-color: var(--md-background);
+  color: var(--md-on-background);
+  line-height: 1.5;
+  height: 100%;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.4; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scaleInBounce {
+  0% { opacity: 0; transform: scale(0.6); }
+  60% { opacity: 1; transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-6px); }
+  30% { transform: translateX(6px); }
+  45% { transform: translateX(-4px); }
+  60% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+  90% { transform: translateX(2px); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.15); }
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes numberPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes timerPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px var(--md-primary); }
+  50% { box-shadow: 0 0 24px var(--md-primary), 0 0 48px var(--md-primary); }
+}
+
+.animate-fade-in { animation: fadeIn 300ms var(--transition-decelerate) both; }
+.animate-fade-in-up { animation: fadeInUp 400ms cubic-bezier(0,0,0,1) both; }
+.animate-scale-in { animation: scaleIn 300ms cubic-bezier(0,0,0,1) both; }
+.animate-scale-bounce { animation: scaleInBounce 400ms cubic-bezier(0,0,0,1) both; }
+.animate-slide-left { animation: slideInLeft 400ms cubic-bezier(0,0,0,1) both; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--md-outline-variant);
+  border-radius: var(--md-shape-full);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--md-outline); }
